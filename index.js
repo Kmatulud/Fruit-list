@@ -2,31 +2,43 @@ let addFruitElem = document.querySelector("#add-fruits");
 let addEmoElem = document.querySelector("#add-emojis");
 let submitElem = document.querySelector(".submitBtn");
 
+//Array 1
 const fruitNames = ["Grapes", "Melon", "Watermelon", "Tangerine", "Lemon", "Banana", "Pineapple", "Mango", "Red Apple"];
+
+//Array 2
 const fruits = ["🍇", "🍈", "🍉", "🍊", "🍋", "🍌", "🍍", "🥭", "🍎"];
 
+// Fuction that creates a combined map
+const makeNewMap = (fruitNames, fruits) => { //Function takes arrays as parameters
+    const myMap = new Map(); //Defines a new Map
+    for (let i = 0; i < fruitNames.length; i++) {
+        myMap.set(fruitNames[i], fruits[i]) ; 
+        //Looping through Array 1  and creating a new array from it with Array 1 & Array 2 using only the index of Array 1.
+    }
 
-function displayFruits(){
+    //Sort the new mapped array by key using the sort method. This will take all values entered in myMap.
+    const sortedMap = new Map([...myMap.entries()].sort());
 
-    var mappedFruits = fruitNames.map(function(fruity){
-        return "<li>" + fruity + "</li>";
-    })
-
-    var mappedEmo = fruits.map(function(emo){
-        return emo;
-    })
-    localStorage.setItem("fruitNames", mappedFruits.sort());
-    localStorage.setItem("fruitEmo", mappedEmo.sort());
-
-
-    // localStorage.setItem("fruitEmo",fruits);
-
-    // let b = localStorage.getItem("fruitEmo");
-    let listItem = document.querySelector("li");
-    // if (localStorage.getItem("fruitEmo") && localStorage.getItem("fruitNames")){
-        listItem.innerHTML = localStorage.getItem("fruitNames") + localStorage.getItem("fruitEmo");
-    // }
+    localStorage.setItem("fruitNames", JSON.stringify(myMap));
 }
+
+ function viewFruits(){
+    const newFruits = JSON.parse(localStorage.getItem("fruitNames"));
+    const list = document.querySelector(".list");
+
+    for (let x = 0; x < newFruits.length; x++) {
+    console.log(newFruits[x]);
+
+    const listItem = document.createElement("li");
+    const listValue = document.createTextNode(newFruits[x]);
+    listItem.appendChild(listValue);
+
+    list.appendChild(listItem);
+    }
+}
+
+viewFruits();
+
 function addFruits(){
     let addFruitElems = addFruitElem.value
     let addEmoElems = addFruitElem.value
@@ -35,11 +47,11 @@ function addFruits(){
     fruits.push(addEmoElems);
     return false;
 }
-function findFruit(){
+// function findFruit(){
 
-}
+// }
 // console.log(fruitNames);
-window.addEventListener("load", displayFruits);
+// window.addEventListener("load", displayFruits);
 if(submitElem){
     submitElem.addEventListener('click', addFruits, false);
   }
