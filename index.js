@@ -2,28 +2,18 @@ let addFruitElem = document.querySelector("#add-fruits");
 let addEmoElem = document.querySelector("#add-emojis");
 let submitElem = document.querySelector(".submitBtn");
 
-//Array 1
-const fruitNames = ["Grapes", "Melon", "Watermelon", "Tangerine", "Lemon", "Banana", "Pineapple", "Mango", "Red Apple"];
-
-//Array 2
-const fruits = ["🍇", "🍈", "🍉", "🍊", "🍋", "🍌", "🍍", "🥭", "🍎"];
-const myMap = new Map(); //Defines a new Map
+const fruitFactoryFunction = FruitFactoryFunction();
 
 // Fuction that creates a combined map
-const makeNewMap = (fruitNames, fruits) => { //Function takes arrays a parameters
-    const myMap = new Map(); //Defines a new Map
-    for (let i = 0; i < fruitNames.length; i++) {
-        myMap.set(fruitNames[i], fruits[i]) ; //Looping through Array 1  and creating a new object from it with Array 1 & Array 2 using only the index of Array 1.
-    }
-
-    //Sort the new mapped object by key using the sort method. This will take all values entered in myMap.
-    const sortedMap = new Map([...myMap.entries()].sort());
-
-    localStorage.setItem("fruitNames", myMap);
-
+const displayFruits = () => {
+    let fruitNames = fruitFactoryFunction.displayFruitWithEmo();
+    localStorage.setItem("fruitNames", JSON.stringify(fruitNames));
 }
+displayFruits()
 
- function viewFruits(){
+
+
+const viewFruits = () => {
     const newFruits = JSON.parse(localStorage.getItem("fruitNames"));
     const list = document.querySelector(".list");
 
@@ -41,7 +31,7 @@ const makeNewMap = (fruitNames, fruits) => { //Function takes arrays a parameter
  viewFruits();
 
 
-function addFruits(){
+const addFruits = () => {
     let addFruitElems = addFruitElem.value
     let addEmoElems = addFruitElem.value
 
