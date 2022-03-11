@@ -11,25 +11,9 @@ const FruitFactoryFunction = () => {
         return fruitsAndEmos.sort();
     }    
     
-    const addFruitEmo = (fruit, emo) => {
-        if (fruit != "" && emo != "") {
-            //inserting values into the designated arrays, if boxes are not empty and displaying a success message.
-            fruitNames.push(fruit);
-            fruits.push(emo);
-            classList.add("show");
-            setTimeout(() => {
-                // hides element 
-               classList.remove("show");
-            }, 5000);
-        } else {
-            err.classList.add("show");
-            setTimeout(() => {
-                // hides element 
-                classList.remove("show");
-            }, 5000);
-        }
-      
-    }
+const addFruitEmo = () => {
+
+}
 
  
 const searchFruit = (searchItem) => {
