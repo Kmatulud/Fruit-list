@@ -1,0 +1,1 @@
+[![Build Status](https://app.travis-ci.com/Kmatulud/Fruit-list.svg?branch=gh-pages)](https://app.travis-ci.com/Kmatulud/Fruit-list)
