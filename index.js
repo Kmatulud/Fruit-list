@@ -4,9 +4,6 @@ let submitElem = document.querySelector(".submitBtn");
 let searchbox = document.querySelector("#search");
 const searchIcon = document.querySelector(".fa-magnifying-glass");
 
-let fruitNames = ["Grapes", "Melon", "Watermelon", "Tangerine", "Lemon", "Banana", "Pineapple", "Mango", "Red Apple"];
-let fruits = ["🍇", "🍈", "🍉", "🍊", "🍋", "🍌", "🍍", "🥭", "🍎"];
-
 const fruitFactoryFunction = FruitFactoryFunction();
 
 const addFruits = () => {
@@ -80,8 +77,4 @@ function searchFruits (){
   }
 }
 
-// searchFruits();
-
-submitElem.addEventListener("click", addFruits);
-// searchIcon.addEventListener("click", searchFruits);
 

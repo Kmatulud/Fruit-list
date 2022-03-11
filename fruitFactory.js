@@ -16,11 +16,11 @@ const FruitFactoryFunction = () => {
     }
     
     const getEmo = () =>{
-        return fruitAdded;
+        return emoAdded;
     }
 
     let fruitsAndEmos = [];
-    
+
     const displayFruitWithEmo = () => {
         fruitsAndEmos = fruitNames.map((fruit)=>{
             let getFruitIndex = fruitNames.indexOf(fruit);
