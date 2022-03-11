@@ -1,8 +1,26 @@
 const FruitFactoryFunction = () => {
     let fruitNames = ["Grapes", "Melon", "Watermelon", "Tangerine", "Lemon", "Banana", "Pineapple", "Mango", "Red Apple"];
     let fruits = ["🍇", "🍈", "🍉", "🍊", "🍋", "🍌", "🍍", "🥭", "🍎"];
+    let fruitAdded;
+    let emoAdded;
+
+    const addFruit = (fruit) => {
+        fruitAdded = fruit;
+    }
+    
+    const getFruit = () =>{
+        return fruitAdded;
+    }
+    const addEmo = (emo) => {
+        emoAdded = emo;
+    }
+    
+    const getEmo = () =>{
+        return fruitAdded;
+    }
 
     let fruitsAndEmos = [];
+    
     const displayFruitWithEmo = () => {
         fruitsAndEmos = fruitNames.map((fruit)=>{
             let getFruitIndex = fruitNames.indexOf(fruit);
@@ -10,7 +28,8 @@ const FruitFactoryFunction = () => {
         })
         return fruitsAndEmos.sort();
     }    
-    
+
+
 const addFruitEmo = () => {
 
 }
@@ -24,7 +43,11 @@ const searchFruit = (searchItem) => {
     return{
         displayFruitWithEmo,
         addFruitEmo,
-        searchFruit
+        searchFruit,
+        addFruit,
+        getFruit,
+        addEmo,
+        getEmo
     }
 
 
